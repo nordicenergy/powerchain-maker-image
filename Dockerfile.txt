@@ -1,0 +1,87 @@
+version: '2'
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.50.0.0/16
+          gateway: 10.50.0.1
+services:
+
+  node1:
+    container_name: node1
+    image: nordicenergy/powerchain-maker
+    working_dir: /node1
+    command: ["bash" , "start.sh"]
+    volumes:
+      - ./node1:/node1
+      - ./node1:/home
+      - ./node1:/master
+    ports:
+      - "20100:22000"
+      - "20101:22001"
+      - "20102:22002"
+      - "20103:22003"
+      - "20104:22004"
+      - "20105:22005"
+    networks:
+      vpcbr:
+        ipv4_address: 10.50.0.6
+  node2:
+    container_name: node2
+    image: nordicenergy/powerchain-maker
+    working_dir: /node2
+    command: ["bash" , "start.sh"]
+    volumes:
+      - ./node2:/node2
+      - ./node2:/home
+      - ./node1:/master
+    ports:
+      - "20200:22000"
+      - "20201:22001"
+      - "20202:22002"
+      - "20203:22003"
+      - "20204:22004"
+      - "20205:22005"
+    networks:
+      vpcbr:
+        ipv4_address: 10.50.0.7
+  node3:
+    container_name: node3
+    image: nordicenergy/powerchain-maker
+    working_dir: /node3
+    command: ["bash" , "start.sh"]
+    volumes:
+      - ./node3:/node3
+      - ./node3:/home
+      - ./node1:/master
+    ports:
+      - "20300:22000"
+      - "20301:22001"
+      - "20302:22002"
+      - "20303:22003"
+      - "20304:22004"
+      - "20305:22005"
+    networks:
+      vpcbr:
+        ipv4_address: 10.50.0.8
+  node4:
+    container_name: node4
+    image: nordicenergy/powerchain-maker
+    working_dir: /node4
+    command: ["bash" , "start.sh"]
+    volumes:
+      - ./node4:/node4
+      - ./node4:/home
+      - ./node1:/master
+    ports:
+      - "20400:22000"
+      - "20401:22001"
+      - "20402:22002"
+      - "20403:22003"
+      - "20404:22004"
+      - "20405:22005"
+    networks:
+      vpcbr:
+        ipv4_address: 10.50.0.9
