@@ -32,7 +32,7 @@ else
     branch=$(git branch | grep \* | cut -d ' ' -f2-)
 
 
-    getTag $powerchain_version 2.6.2 powerchain_version
+    getTag $powerchain_version 1.0.0 powerchain_version
 
     getTag $branch $powerchain_maker_version powerchain_maker_version
 

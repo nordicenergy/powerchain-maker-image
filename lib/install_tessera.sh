@@ -11,9 +11,9 @@ docker run -ti --rm -v ${HOME}:/root -v $(pwd):/git alpine/git clone https://git
 docker run -ti --rm -v ${HOME}:/root -v $(pwd):/git -w /git/tessera alpine/git checkout tessera-$tessera_version
 
 chownDir 'tessera'
-sed -i "s;HASH LONGVARBINARY NOT NULL UNIQUE,;HASH LONGVARBINARY NOT NULL UNIQUE, TIMESTAMP BIGINT,;" tessera/data-migration/src/main/java/com/quorum/tessera/data/migration/H2DataExporter.java
+sed -i "s;HASH LONGVARBINARY NOT NULL UNIQUE,;HASH LONGVARBINARY NOT NULL UNIQUE, TIMESTAMP BIGINT,;" tessera/data-migration/src/main/java/com/powerchain/tessera/data/migration/H2DataExporter.java
 
-sed -i "s#\(public class\)#import javax.xml.bind.annotation.XmlAccessType;\nimport javax.xml.bind.annotation.XmlAccessorType;\n@XmlAccessorType\(XmlAccessType.FIELD\)\n\1#" tessera/config/src/main/java/com/quorum/tessera/config/HashicorpKeyVaultConfig.java
+sed -i "s#\(public class\)#import javax.xml.bind.annotation.XmlAccessType;\nimport javax.xml.bind.annotation.XmlAccessorType;\n@XmlAccessorType\(XmlAccessType.FIELD\)\n\1#" tessera/config/src/main/java/com/powerchain/tessera/config/HashicorpKeyVaultConfig.java
 
 docker run -it --rm -v $(pwd)/tessera:/tessera -w /tessera maven:3.6.0-jdk-8-slim /bin/sh -c 'mvn install -DskipTests -Djacoco.skip=true'
 

@@ -5,11 +5,11 @@ PowerChain Maker uses Docker to make the setup easy. Most of the dependancies ar
 > **Usage of PowerChain Maker image building utility is optional. The official docker image is uploaded in docker hub.**
 ## Quick Start ##
 1. Create a temperory directory and clone following three projects
-   1. `mkdir powerchain_temp; cd powerchain_temp ` 
-   2. `git clone https://github.com/nordicenergy/powerchain-maker-nodemanager.git`
-   3. `git clone https://github.com/nordicenergy/powerchain-maker-ui.git`
-   4. `git clone https://github.com/nordicenergy/powerchain-maker-image.git` 
-   5. PowerChain Maker project is not required to build docker image as it is required only at runtime. 
+   1. `mkdir qmtemp; cd qmtemp ` 
+   1. `git clone https://github.com/nordicenergy/powerchain-maker-nodemanager.git`
+   1. `git clone https://github.com/nordicenergy/powerchain-maker-ui.git`
+   1. `git clone https://github.com/nordicenergy/powerchain-maker-image.git` 
+   1. PowerChain Maker project is not required to build docker image as it is required only at runtime. 
 1. Run `./build_image.sh` inside `powerchain-maker-image` directory. Following are the steps executed automatically by this script. 
    1. Automatically build powerchain-maker-nodemanager using Golang and copy the executable to image.
    2. Automatically build powerchain-maker-ui using Angular and copy HTML, JS, CSS and images. 
@@ -17,18 +17,18 @@ PowerChain Maker uses Docker to make the setup easy. Most of the dependancies ar
    4. Download `Constellation` executable and copy to image.
    5. Install Linux libraries.
 1. Tag docker image
-   * PowerChain maker follows below convention for naming docker image
+   * Quourm maker follows below convention for naming docker image
    nordicenergy/powerchain-maker:`<powerchain-version>`_`<powerchain-maker-version>`  
 
-   E.g. If PowerChain version is 2.0.2 and PowerChain Maker version is 2.1, the docker image tag by convension is **nordicenergy/powerchain-maker:2.0.2_6.2**
+   E.g. If PowerChain version is 2.0.2 and PowerChain Maker version is 2.1, the docker image tag by convension is **nordicenergy/powerchain-maker:2.0.2_2.1**
    
    * You can pass the name and tag of the docker image as the parameter to the `build_image.sh` script.  
 
-   E.g. `build_image.sh powerchain-maker` or `build_image.sh powerchain-maker 2.0_2.6`
+   E.g. `build_image.sh my-powerchain-maker` or `build_image.sh my-powerchain-maker 1.0_2.0`
 
    * If you do not pass any parameters, `build_image.sh` will use the git branch for the PowerChain Maker part of the tag name. 
 
-   E.g. If you are v2.0 branch, the generated image name will be **nordicenergy/powerchain-maker:2.0.2_2.6**
+   E.g. If you are v1.0 branch, the generated image name will be **nordicenergy/powerchain-maker:1.0.0_2.0**
 
    > Branches `development` and `master` are treated specially.  
 
