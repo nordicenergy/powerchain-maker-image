@@ -5,7 +5,7 @@ PowerChain Maker uses Docker to make the setup easy. Most of the dependancies ar
 > **Usage of PowerChain Maker image building utility is optional. The official docker image is uploaded in docker hub.**
 ## Quick Start ##
 1. Create a temperory directory and clone following three projects
-   1. `mkdir qmtemp; cd qmtemp ` 
+   1. `mkdir powerchain-temp; cd powerchain-temp ` 
    1. `git clone https://github.com/nordicenergy/powerchain-maker-nodemanager.git`
    1. `git clone https://github.com/nordicenergy/powerchain-maker-ui.git`
    1. `git clone https://github.com/nordicenergy/powerchain-maker-image.git` 
