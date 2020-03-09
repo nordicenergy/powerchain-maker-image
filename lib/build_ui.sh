@@ -13,7 +13,7 @@ cp -r ../powerchain-maker-ui powerchain-maker-ui
 pushd powerchain-maker-ui > /dev/null
 
 branch=$(git branch | grep \* | cut -d ' ' -f2-)
-echo $CYAN"Building QM UI "$branch" ..."$COLOR_END
+echo $CYAN"Building PowerChain UI "$branch" ..."$COLOR_END
 popd > /dev/null
 
 docker run -it --rm \
@@ -25,4 +25,4 @@ docker run -it --rm \
 ## Change the owneship of directory
 chownDir 'powerchain-maker-ui'
 
-echo $CYAN"Building QM UI "$branch" Completed."$COLOR_END
+echo $CYAN"Building PowerChain UI "$branch" Completed."$COLOR_END
