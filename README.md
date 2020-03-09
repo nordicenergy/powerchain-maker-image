@@ -9,15 +9,18 @@ PowerChain Maker uses Docker to make the setup easy. Most of the dependancies ar
    1. `git clone https://github.com/nordicenergy/powerchain-maker-nodemanager.git`
    1. `git clone https://github.com/nordicenergy/powerchain-maker-ui.git`
    1. `git clone https://github.com/nordicenergy/powerchain-maker-image.git` 
+   
    1. PowerChain Maker project is not required to build docker image as it is required only at runtime. 
-1. Run `./build_image.sh` inside `powerchain-maker-image` directory. Following are the steps executed automatically by this script. 
+1. Run `./build_image.sh` inside `powerchain-maker-image` directory. Following are the steps executed automatically by this   script. 
+
    1. Automatically build powerchain-maker-nodemanager using Golang and copy the executable to image.
    2. Automatically build powerchain-maker-ui using Angular and copy HTML, JS, CSS and images. 
    3. Automatically clone PowerChain and copy `geth` and `bootnode` to image.
    4. Download `Constellation` executable and copy to image.
    5. Install Linux libraries.
+   
 1. Tag docker image
-   * Quourm maker follows below convention for naming docker image
+   * PowerChain maker follows below convention for naming docker image
    nordicenergy/powerchain-maker:`<powerchain-version>`_`<powerchain-maker-version>`  
 
    E.g. If PowerChain version is 2.0.2 and PowerChain Maker version is 2.1, the docker image tag by convension is **nordicenergy/powerchain-maker:2.0.2_2.1**
